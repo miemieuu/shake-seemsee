@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>เซียมซี</title>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- ส่วนแสดงคาถา -->
+    <div id="katha-section">
+      <div class="row" id="katha-container">
+        <div class="col-sm-12 text-center">
+        <div class="headkatha">
+          <h1>คาถาบูชาปู่ฤาษีนาคสิทธิโคดก</h1>
+          <h2>(Chant to Honor Pu Ruesi Naga Siddhi Khodok)</h2>
+        </div>
+        <div class="katha-detail">
+          <p class="chant">นะโม ๓ จบ</p>
+          <p class="chant">โอม อุกาสะ วันทามิ อิมังอังดี พะหูบุพผัง อะหังวันทา</p>
+          <p class="chant">สักการะวันทะนัง อาจาริยัง สัพสัยยัง วินาศสันติ นาคะสิทธิ</p>
+          <p class="chant">อะการิยะโดดก อะปะระปะชา อิมัสมิง สิทธิกิจจัง สิทธิกัมมัง สิทธิการิยัง ประสิทธิภะวันตุเมฯ</p>  
+        </div>
+        <div class="katha-detail">
+          <p class="chant">Begin by reciting Namo 3 times</p>
+          <p class="chant">Om Ukasa Vantami Imang Angdee Pahubuppang Ahang Vanta</p>
+          <p class="chant">Sakkara Vantanang Acharayang Sap Saiyang Vinas Santi Naga Siddhi</p>
+          <p class="chant">Akariya Dodok Aparapacha Imasming Siddhikijjang Siddhikammang Siddhikariyang</p> 
+          <p class="chant"> Prasiddhi Bhavantu Me.</p>
+        </div>
+        </div>
+      </div>
+      <div id="start-btn">
+        <button id="next-btn" class="btn btn-warning">START</button>
+      </div>
+    </div>
+
+    <!-- ส่วนแสดงเซียมซี -->
+     <div id="containerSeemsee">
+        <div id="seemsee-section" style="display: none;">
+          <div class="row">
+            <div class="imgSeemsee">
+              <div class="col-sm-12 text-center">
+                <img src="TestPic/seemsee.png" alt="" id="ss-img" width="150%" height="auto" class="ss-img"/>
+              </div>
+            </div>
+          </div>
+          <div class="row" id="b_start" onclick="st_random()">
+            <div class="col-sm-12 text-center">
+              <button type="button" class="btn" >SHAKE</button>
+            </div>
+          </div>          
+          <div class="row" id="b_continue" style="display: none;">
+            <div class="col-sm-12 text-center">
+              <a href="#" class="btn" onclick="goContact()">CONTINUE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ส่วนแสดงข้อมูลติดต่อ -->
+      <div id="contact-section" style="display: none;">
+        <div class="row" id="contact-container">
+          <div class="col-sm-12 text-center">
+            <div  class="headkatha">
+              <h1>ติดต่อ</h1>
+              <h1>(Contacts)</h1>
+            </div>
+            <p>
+              หากท่านต้องการให้ผู้เชี่ยวชาญแปลความหมายเกี่ยวกับใบเซียมซีนี้ <br> กรุณาติดต่อมาที่ที่อยู่ด้านล่าง <br>
+              If you would like an expert to interpret the meaning of <br>  
+              this fortune stick message, please contact the address <br> below.
+            </p>
+            <img src="TestPic/line.png" alt=""  width="50%" height="auto" />
+          </div>
+        </div>
+      
+        <!-- แก้ไข id จาก b_back เป็น back-add เพื่อป้องกันการซ้ำ -->
+        <div class="row" id="back-add" style="display: none;">
+          <div class="col-sm-12 text-center">
+            <a href="https://line.me/R/ti/p/@your-line-id" class="btn" target="_blank">ADD</a>
+          </div>
+        </div>
+      
+        <!-- แก้ไข id จาก b_back เป็น play-again เพื่อป้องกันการซ้ำ -->
+        <div class="row" id="b_back" style="display: none;">
+          <div class="col-sm-12 text-center">
+            <a href="#" class="btn" onclick="goBack()">PLAY AGAIN</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  <script src="./script.js"></script>
+</body>
+</html>

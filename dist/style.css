@@ -1,0 +1,327 @@
+html{
+  overflow-x: hidden; 
+}
+
+body {
+  background-color: #a12b2b;
+  background: url('./TestPic/bg2.png') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  color: rgb(0, 0, 0);
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* กำหนดพื้นหลังมืดและภาพพื้นหลัง */
+.body-dark {
+  background-color: rgba(0, 0, 0, 0.7); /* สีดำทึบ 70% */
+  background-image: url('./TestPic/bg2.png'); /* กำหนดภาพพื้นหลัง */
+  background-position: center center; /* ตั้งตำแหน่งภาพพื้นหลังที่กลาง */
+  background-repeat: no-repeat; /* ไม่ให้ภาพพื้นหลังซ้ำ */
+  background-size: cover; /* ให้ภาพพื้นหลังขยายเต็มหน้าจอ */
+  height: 100vh; /* ทำให้ความสูงของ body ครอบคลุมพื้นที่ทั้งหมดของหน้าจอ */
+  margin: 0; /* เอาค่า margin ออกจาก body */
+  padding: 0; /* เอาค่า padding ออกจาก body */
+  overflow-x: hidden;
+}
+#katha-section , #contact-section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* ย้ายตำแหน่งให้กลาง */ 
+}
+
+#katha-container , #contact-container {
+  width: auto;
+  height: auto;
+  padding: 24px 16px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  gap: 0px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.headkatha{
+  border-bottom: 1px solid #AD9468;
+  text-align: left;
+  color: #AD9468;
+}
+
+.headkatha h1 {
+  font-size: 24px;
+}
+
+.headkatha h2 {
+  font-size: 20px;
+}
+
+.katha-detail{
+  text-align: left;
+  padding: 16px 0px 0px 0px;
+  color: #285247;
+}
+
+.katha-detail p{
+  margin:0
+}
+
+#contact-section p{
+  margin:0;
+  text-align: left;
+  padding: 16px 0px 0px 0px;
+  color: #285247;
+}
+
+#ss-img{
+  width: 100%;
+}
+
+
+
+.ss-img-large{
+  width: 100%;
+  max-width: 473px;
+  height: 80%;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* ย้ายตำแหน่งให้กลาง */
+  box-sizing: border-box;
+}
+
+
+.button-start {
+  border-radius: 25px;
+}
+
+h2 {
+  text-shadow: 0 0 3px #313131;
+}
+#next-btn {
+  border-radius: 100px; /* การตั้งค่ามุมโค้งของปุ่ม */
+  border: 1px solid #10443E; /* เส้นขอบด้านนอกเป็นสีขาว */
+  background: #10443E; /* สีพื้นหลังของปุ่ม */
+  padding: 10px; /* เว้นระยะภายในปุ่ม */
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer เมื่อชี้ไปที่ปุ่ม */
+  width: 100%;
+}
+
+#b_start{
+  position: absolute; /* ทำให้ปุ่มทับที่รูปภาพ */
+  top: 80%; /* ตั้งตำแหน่งให้ปุ่มอยู่กึ่งกลางภาพจากด้านบน */
+  left: 50%; /* ตั้งตำแหน่งให้ปุ่มอยู่กึ่งกลางภาพจากด้านซ้าย */
+  transform: translate(-50%, -50%); /* เลื่อนปุ่มให้แน่นอนกึ่งกลาง */
+  z-index: 10; /* เพิ่ม z-index เพื่อให้ปุ่มอยู่เหนือภาพ */
+  border-radius: 100px; /* การตั้งค่ามุมโค้งของปุ่ม */
+  border: 1px solid #10443E; /* เส้นขอบด้านนอกเป็นสีขาว */
+  background: #10443E; /* สีพื้นหลังของปุ่ม */
+  padding: 10px; /* เว้นระยะภายในปุ่ม */
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer เมื่อชี้ไปที่ปุ่ม */
+  width: 30%;
+  
+}
+
+#b_continue{
+  position: absolute; /* ทำให้ปุ่มทับที่รูปภาพ */
+  top: 95%; /* ตั้งตำแหน่งปุ่มใกล้ด้านล่างของภาพ */
+  left: 50%; /* ตั้งตำแหน่งให้อยู่ตรงกลางแนวนอน */
+  transform: translate(-50%, -50%); /* เลื่อนปุ่มให้อยู่กึ่งกลาง */
+  z-index: 10; /* ทำให้ปุ่มแสดงอยู่เหนือภาพ */
+  border-radius: 100px; /* การตั้งค่ามุมโค้งของปุ่ม */
+  border: 1px solid #10443E; /* เส้นขอบปุ่ม */
+  background: #10443E; /* สีพื้นหลังของปุ่ม */
+  color: #fff; /* สีข้อความปุ่ม */
+  padding: 10px; /* เว้นระยะภายในปุ่ม */
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer เมื่อชี้ไปที่ปุ่ม */
+  width: 30%;
+  text-align: center; /* จัดข้อความให้อยู่กลางปุ่ม */
+}
+#back-add{
+  border-radius: 100px; /* การตั้งค่ามุมโค้งของปุ่ม */
+  border: 1px solid #10443E; /* เส้นขอบปุ่ม */
+  background: #10443E; /* สีพื้นหลังของปุ่ม */
+  color: #fff; /* สีข้อความปุ่ม */
+  padding: 10px 300px; /* เว้นระยะภายในปุ่ม */
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer เมื่อชี้ไปที่ปุ่ม */
+  width: auto;
+  text-align: center; /* จัดข้อความให้อยู่กลางปุ่ม */
+  margin-bottom: 16px;
+}
+
+#b_back{
+  border-radius: 100px; /* การตั้งค่ามุมโค้งของปุ่ม */
+  border: 1px solid #10443E; /* เส้นขอบปุ่ม */
+  background: #10443E; /* สีพื้นหลังของปุ่ม */
+  color: #fff; /* สีข้อความปุ่ม */
+  padding: 10px 280px; /* เว้นระยะภายในปุ่ม */
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer เมื่อชี้ไปที่ปุ่ม */
+  width: auto;
+  text-align: center; /* จัดข้อความให้อยู่กลางปุ่ม */
+}
+
+
+.btn{
+  font-size: 16px; /* ขนาดตัวอักษร */
+  color: white; /* สีของข้อความในปุ่ม */
+  white-space: nowrap;
+}
+/* เพิ่ม media query สำหรับ iPad หรือหน้าจอที่มีขนาดใหญ่ขึ้น */
+@media screen and (max-width: 1024px) {
+
+
+  .headkatha h1 {
+    font-size: 22px;
+  }
+
+  .headkatha h2 {
+    font-size: 20px;
+  }
+
+  .katha-detail, #contact-section p {
+    padding: 12px 0;
+  }
+
+  .ss-img {
+    min-width: 200%; /* ขยายภาพให้พอดีกับ iPad */
+    height: auto; 
+    margin-left: -50%; /* ขยับภาพให้เหมาะสม */
+  }
+
+  .ss-img-large {
+    width: 70%;
+    height: auto;
+    margin-top: -5%; /* ขยับภาพไปทางซ้าย */
+  }
+
+  #b_start, #b_continue {
+    width: 45%;
+  }
+
+  #b_start {
+    top: 70%;
+  }
+
+  #b_continue {
+    top: 85%;
+  }
+
+  #back-add, #b_back {
+    padding: 10px 250px;
+  }
+}
+
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px) {
+  #katha-container, #contact-container {
+    width: 90%;
+    padding: 16px;
+  }
+
+  .headkatha h1 {
+    font-size: 20px;
+  }
+
+  .headkatha h2 {
+    font-size: 18px;
+  }
+
+  .katha-detail, #contact-section p {
+    padding: 8px 0;
+  }
+
+   .ss-img {
+    min-width: 200%; /* ทำให้ภาพขยายกว้างขึ้น */
+    height: auto; /* ให้ความสูงปรับตามอัตราส่วน */
+    margin-left: -50%; /* ขยับภาพไปทางซ้ายเพื่อให้ภาพเริ่มที่ตำแหน่งที่ต้องการ */
+  }
+  
+  .ss-img-large {
+    width: 80%;
+    height: auto;
+    margin-top: -5%; /* ขยับภาพไปทางซ้ายเพื่อให้ภาพเริ่มที่ตำแหน่งที่ต้องการ */
+  }
+
+  #b_start, #b_continue {
+    width: 40%;
+  }
+
+  #b_start {
+    top: 75%;
+  }
+
+  #b_continue {
+    top: 95%;
+  }
+
+  #back-add, #b_back {
+    padding: 10px 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #katha-container {
+    width: 150%;
+    height: auto; /* ให้ความสูงปรับตามอัตราส่วน */
+    margin-left: -25%; /* ขยับภาพไปทางซ้ายเพื่อให้ภาพเริ่มที่ตำแหน่งที่ต้องการ */
+  }
+
+  #contact-container{
+    width: 100%;
+  }
+
+  .headkatha h1 {
+    font-size: 18px;
+  }
+
+  .headkatha h2 {
+    font-size: 16px;
+  }
+
+  .katha-detail, #contact-section p {
+    padding: 6px 0;
+  }
+
+  .ss-img {
+    min-width: 300%; /* ทำให้ภาพขยายกว้างขึ้น */
+    height: auto; /* ให้ความสูงปรับตามอัตราส่วน */
+    margin-left: -100%; /* ขยับภาพไปทางซ้ายเพื่อให้ภาพเริ่มที่ตำแหน่งที่ต้องการ */
+  }
+  
+
+  .ss-img-large {
+    max-width: 80%;
+    height: auto;
+    margin-top: -10%; /* ขยับภาพไปทางซ้ายเพื่อให้ภาพเริ่มที่ตำแหน่งที่ต้องการ */
+  }
+
+  #b_start, #b_continue {
+    width: 50%;
+  }
+
+
+
+  #b_continue {
+    top: 85%;
+  }
+
+  #back-add, #b_back {
+    padding: 10px 100px;
+  }
+}
+
+
+
