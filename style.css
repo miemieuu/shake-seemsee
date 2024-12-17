@@ -1,6 +1,12 @@
+
 html, body {
+  margin: 0; /* ลบ margin ออกจาก body */
+  padding: 0; /* ลบ padding */
   overflow-x: hidden; /* ปิดการเลื่อนในแนวนอน */
-  overflow-y: auto; /* เปิดการเลื่อนในแนวตั้ง */
+  width: 100%; /* ให้กว้างเต็มจอ */
+  height: 100%; /* ความสูงเต็มจอ */
+  position: relative; /* กำหนดตำแหน่งเริ่มต้น */
+  box-sizing: border-box;
   overflow-x: clip;
 }
 
