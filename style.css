@@ -496,7 +496,8 @@ h2 {
 
 @media (width: 932px) and (height: 430px), 
 (width: 844px) and (height: 390px) , 
-(width: 896px) and (height: 414px)
+(width: 896px) and (height: 414px),
+(max-width: 768px) and (orientation: landscape)
 {
   #katha-section , #contact-section {
     transform: translate(-50%, -35%);
