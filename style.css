@@ -552,10 +552,9 @@ h2 {
   }
 }
 
-
-@media (orientation: landscape) {
-  body {
-    transform: scale(0.9); /* ลดขนาดของเนื้อหาทั้งหมด */
-    transform-origin: top; /* ตั้งจุดเริ่มต้นของการบีบที่ด้านบน */
+@media (max-width: 768px) and (orientation: landscape) {
+  #katha-section, #contact-section {
+    transform: scale(0.5) translateX(-100%) translateY(-50%); /* ลดขนาดของเนื้อหาทั้งหมด */
+    transform-origin: top; 
   }
 }
