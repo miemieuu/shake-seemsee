@@ -1,11 +1,7 @@
 html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh; /* ใช้เพื่อให้ความสูงเต็มหน้าจอ */
   overflow-x: hidden; /* ปิดการเลื่อนในแนวนอน */
   overflow-y: auto; /* เปิดการเลื่อนในแนวตั้ง */
-  box-sizing: border-box;
+  overflow-x: clip;
 }
 
 
