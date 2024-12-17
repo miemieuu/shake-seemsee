@@ -494,10 +494,11 @@ h2 {
   
 }
 
-@media (min-width: 844px) and (max-width: 932px), 
-       (min-width: 896px) and (max-width: 896px) {
-  
-  #katha-section, #contact-section {
+@media (width: 932px) and (height: 430px), 
+(width: 844px) and (height: 390px) , 
+(width: 896px) and (height: 414px)
+{
+  #katha-section , #contact-section {
     transform: translate(-50%, -35%);
   }
 
@@ -507,12 +508,12 @@ h2 {
     margin-left: 15%; /* ขยับภาพไปทางซ้ายเพื่อให้ภาพเริ่มที่ตำแหน่งที่ต้องการ */
   }
 
-  #b_start {
+  #b_start{
     top: 80%;
     width: auto;
   }
 
-  #b_continue {
+  #b_continue{
     top: 92%;
     width: auto;
   }
@@ -521,10 +522,9 @@ h2 {
     max-width: 20%;
     height: auto;
   }
-
   .ss-img {
     min-width: 200%; /* ขยายภาพให้พอดีกับ iPad */
-    height: auto;
+    height: auto; 
     margin-left: -50%; /* ขยับภาพให้เหมาะสม */
     position: absolute;
     bottom: 0;
@@ -541,13 +541,21 @@ h2 {
       transform: translate(49vw, 60vh) scale(0.4); /* หยุดตรงกลางพร้อมขยายภาพเต็มขนาด */
     }
   }
+  
 
 }
-
 
 @media
 (width: 667px) and (height: 375px){
   #katha-section , #contact-section {
     transform: translate(-50%, -30%);
+  }
+}
+
+
+@media (orientation: landscape) {
+  body {
+    transform: scale(0.9); /* ลดขนาดของเนื้อหาทั้งหมด */
+    transform-origin: top; /* ตั้งจุดเริ่มต้นของการบีบที่ด้านบน */
   }
 }
