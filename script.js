@@ -85,6 +85,4 @@ playSoundBtn.addEventListener('click', function() {
   }
 });
 
-// เรียกใช้งานเมื่อโหลดหน้าและเปลี่ยนขนาดหน้าจอ
-window.addEventListener('load', checkOrientation);
-window.addEventListener('resize', checkOrientation);
+
