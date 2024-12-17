@@ -1,6 +1,13 @@
-html{
-  overflow-x: hidden; 
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh; /* ใช้เพื่อให้ความสูงเต็มหน้าจอ */
+  overflow-x: hidden; /* ปิดการเลื่อนในแนวนอน */
+  overflow-y: auto; /* เปิดการเลื่อนในแนวตั้ง */
+  box-sizing: border-box;
 }
+
 
 body {
   background-color: #a12b2b;
@@ -29,6 +36,8 @@ body {
   padding: 0; /* เอาค่า padding ออกจาก body */
   overflow-x: hidden;
 }
+
+
 #katha-section , #contact-section {
   position: absolute;
   top: 50%;
@@ -213,7 +222,7 @@ h2 {
   border: 1px solid #10443E; /* เส้นขอบปุ่ม */
   background: #10443E; /* สีพื้นหลังของปุ่ม */
   color: #fff; /* สีข้อความปุ่ม */
-  padding: 10px 300px; /* เว้นระยะภายในปุ่ม */
+  padding: 10px; /* เว้นระยะภายในปุ่ม */
   cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer เมื่อชี้ไปที่ปุ่ม */
   width: auto;
   text-align: center; /* จัดข้อความให้อยู่กลางปุ่ม */
@@ -223,9 +232,9 @@ h2 {
 #b_back{
   border-radius: 100px; /* การตั้งค่ามุมโค้งของปุ่ม */
   border: 1px solid #10443E; /* เส้นขอบปุ่ม */
-  background: #10443E; /* สีพื้นหลังของปุ่ม */
-  color: #fff; /* สีข้อความปุ่ม */
-  padding: 10px 280px; /* เว้นระยะภายในปุ่ม */
+  background: #fff; /* สีพื้นหลังของปุ่ม */
+  color: #10443E; /* สีข้อความปุ่ม */
+  padding: 10px; /* เว้นระยะภายในปุ่ม */
   cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer เมื่อชี้ไปที่ปุ่ม */
   width: auto;
   text-align: center; /* จัดข้อความให้อยู่กลางปุ่ม */
@@ -322,7 +331,6 @@ h2 {
   }
 
   #back-add, #b_back {
-    padding: 10px 250px;
     white-space: nowrap;
   }
 
@@ -486,28 +494,60 @@ h2 {
   
 }
 
-/* ซ่อนข้อความแจ้งเตือนในแนวตั้ง */
-#landscape-warning {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: black;
-  color: white;
-  font-size: 18px;
-  text-align: center;
-  padding: 20px;
-  z-index: 1000;
+@media (width: 932px) and (height: 430px), 
+(width: 844px) and (height: 390px) , 
+(width: 896px) and (height: 414px)
+{
+  #katha-section , #contact-section {
+    transform: translate(-50%, -35%);
+  }
+
+  #contact-container {
+    width: 70%;
+    height: auto; /* ให้ความสูงปรับตามอัตราส่วน */
+    margin-left: 15%; /* ขยับภาพไปทางซ้ายเพื่อให้ภาพเริ่มที่ตำแหน่งที่ต้องการ */
+  }
+
+  #b_start{
+    top: 80%;
+    width: auto;
+  }
+
+  #b_continue{
+    top: 92%;
+    width: auto;
+  }
+
+  .ss-img-large {
+    max-width: 20%;
+    height: auto;
+  }
+  .ss-img {
+    min-width: 200%; /* ขยายภาพให้พอดีกับ iPad */
+    height: auto; 
+    margin-left: -50%; /* ขยับภาพให้เหมาะสม */
+    position: absolute;
+    bottom: 0;
+    right: 0; /* เริ่มจากจุดซ้ายล่าง */
+    transform: scale(0.5); /* ย่อขนาดภาพเริ่มต้น */
+    animation: moveAndScale 3s forwards ease-in-out; /* เรียกใช้ animation */
+  }
+
+  @keyframes moveAndScale {
+    0% {
+      transform: translate(35vw, 100vh) scale(0.05); /* เริ่มต้นจากกรอบซ้ายล่าง */
+    }
+    100% {
+      transform: translate(49vw, 60vh) scale(0.4); /* หยุดตรงกลางพร้อมขยายภาพเต็มขนาด */
+    }
+  }
+  
+
 }
 
-/* แสดงข้อความเมื่ออยู่ในแนวนอน */
-body.landscape #landscape-warning {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media
+(width: 667px) and (height: 375px){
+  #katha-section , #contact-section {
+    transform: translate(-50%, -30%);
+  }
 }
-
-
-

@@ -1,16 +1,17 @@
-
+let shakeSound, nextSound; 
 // ฟังก์ชันสำหรับการเขย่าเซียมซี
 function st_random() {
-  const shakeSound = new Audio("sound/SFX_Shake_01.mp3"); // ใส่ path ของไฟล์เสียง
-  shakeSound.play(); // เล่นเสียง
+  if (!backgroundSound.paused) {
+    // สร้างเสียงเขย่า
+    shakeSound = new Audio("sound/SFX_Shake_01.mp3");
+    shakeSound.play(); // เล่นเสียงเขย่า
 
-    // เมื่อเสียงเขย่าจบ ให้เล่นเสียงถัดไป
-
-      // ดีเลย์ 3 วินาที ก่อนเล่นเสียงถัดไป
-      setTimeout(function() {
-        const nextSound = new Audio("sound/SFX_Result_01.mp3"); // ใส่ path ของไฟล์เสียงถัดไป
-        nextSound.play(); // เล่นเสียงถัดไป
-      },4900); // ดีเลย์ 3000ms (3 วินาที)
+    // ดีเลย์เสียงถัดไป
+    setTimeout(function() {
+      nextSound = new Audio("sound/SFX_Result_01.mp3");
+      nextSound.play(); // เล่นเสียงผลลัพธ์
+    }, 4900);
+  }
 
 
   $("#ss-img").attr("src", "TestPic/seemsee.gif"); // ตั้งค่าให้แสดง gif
@@ -56,51 +57,33 @@ $("#next-btn").click(function() {
 });
 
 
-// ตรวจสอบว่าเป็นอุปกรณ์มือถือหรือไม่
-function isMobile() {
-  return /iPhone|iPod|Android/i.test(window.navigator.userAgent);
-}
 
-// ฟังก์ชันตรวจสอบแนวหน้าจอ
-function checkOrientation() {
-  if (isMobile() && window.innerHeight < window.innerWidth) {
-    // ถ้าเป็นมือถือและอยู่ในแนวนอน
-    document.body.classList.add('landscape');
-  } else {
-    // ลบ class "landscape" หากไม่ตรงเงื่อนไข
-    document.body.classList.remove('landscape');
-  }
-}
 
 document.getElementById("back-add").addEventListener("click", function() {
   window.open("https://line.me/R/ti/p/@your-line-id", "_blank");
 });
 
-    // เลือกองค์ประกอบต่างๆ
-    const playSoundBtn = document.getElementById('play-sound-btn');
-    const soundOnIcon = document.getElementById('sound-on-icon');
-    const soundOffIcon = document.getElementById('sound-off-icon');
-    const backgroundSound = document.getElementById('background-sound');
+    // ฟังก์ชันเปิด/ปิดเสียงพื้นหลัง
+const playSoundBtn = document.getElementById('play-sound-btn');
+const soundOnIcon = document.getElementById('sound-on-icon');
+const soundOffIcon = document.getElementById('sound-off-icon');
+const backgroundSound = document.getElementById('background-sound');
 
-    // ฟังก์ชันเปิด/ปิดเสียง
-    playSoundBtn.addEventListener('click', function() {
-      if (backgroundSound.paused) {
-        backgroundSound.play(); // เล่นเสียง
-        soundOffIcon.style.display = 'none'; // ซ่อนไอคอนเสียงเปิด
-        soundOnIcon.style.display = 'inline'; // แสดงไอคอนเสียงปิด
-      } else {
-        backgroundSound.pause(); // หยุดเสียง
-        soundOffIcon.style.display = 'inline'; // แสดงไอคอนเสียงเปิด
-        soundOnIcon.style.display = 'none'; // ซ่อนไอคอนเสียงปิด
-      }
-    });
+playSoundBtn.addEventListener('click', function() {
+  if (backgroundSound.paused) {
+    backgroundSound.play(); // เล่นเสียงพื้นหลัง
+    soundOffIcon.style.display = 'none';
+    soundOnIcon.style.display = 'inline';
+  } else {
+    backgroundSound.pause(); // ปิดเสียงพื้นหลัง
+    soundOffIcon.style.display = 'inline';
+    soundOnIcon.style.display = 'none';
 
-    // เล่นเสียงอัตโนมัติเมื่อหน้าเว็บโหลด
-    window.addEventListener('load', function() {
-      backgroundSound.play(); // เริ่มเล่นเสียงพื้นหลัง
-      soundOnIcon.style.display = 'none'; // ซ่อนไอคอนเสียงเปิด
-      soundOffIcon.style.display = 'inline'; // แสดงไอคอนเสียงปิด
-    });
+    // หยุดเสียงเขย่าและเสียงผลลัพธ์ทั้งหมด
+    if (shakeSound) shakeSound.pause();
+    if (nextSound) nextSound.pause();
+  }
+});
 
 // เรียกใช้งานเมื่อโหลดหน้าและเปลี่ยนขนาดหน้าจอ
 window.addEventListener('load', checkOrientation);

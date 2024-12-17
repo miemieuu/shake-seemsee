@@ -18,7 +18,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
+  <div id="container">
     <!-- ส่วนแสดงคาถา -->
     <div id="katha-section">
       <div class="row" id="katha-container">
@@ -100,12 +100,9 @@
           </div>
         </div>
       </div>
-      <div id="landscape-warning">
-        <p>กรุณาหมุนอุปกรณ์ของคุณเป็นแนวตั้ง (Please rotate your device to portrait mode)</p>
-      </div>
       <button id="play-sound-btn">
-        <i class="fa-solid fa-volume-high" id="sound-on-icon"></i> <!-- เสียงเปิด -->
-        <i class="fa-solid fa-volume-xmark" id="sound-off-icon" style="display: none;"></i> <!-- เสียงปิด -->
+        <i class="fa-solid fa-volume-high" id="sound-on-icon" style="display: none;"></i> <!-- เสียงเปิด -->
+        <i class="fa-solid fa-volume-xmark" id="sound-off-icon" ></i> <!-- เสียงปิด -->
       </button>      
       <audio id="background-sound" autoplay loop>
         <source src="sound/BGM_SaemSee_01.mp3" type="audio/mp3">
