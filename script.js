@@ -68,20 +68,24 @@ const playSoundBtn = document.getElementById('play-sound-btn');
 const soundOnIcon = document.getElementById('sound-on-icon');
 const soundOffIcon = document.getElementById('sound-off-icon');
 const backgroundSound = document.getElementById('background-sound');
-
 playSoundBtn.addEventListener('click', function() {
   if (backgroundSound.paused) {
     backgroundSound.play(); // เล่นเสียงพื้นหลัง
     soundOffIcon.style.display = 'none';
     soundOnIcon.style.display = 'inline';
+
+    // เปิดเสียงเขย่าและเสียงผลลัพธ์ทั้งหมด
+    if (shakeSound) shakeSound.muted = false;
+    if (nextSound) nextSound.muted = false;
+
   } else {
     backgroundSound.pause(); // ปิดเสียงพื้นหลัง
     soundOffIcon.style.display = 'inline';
     soundOnIcon.style.display = 'none';
 
-    // หยุดเสียงเขย่าและเสียงผลลัพธ์ทั้งหมด
-    if (shakeSound) shakeSound.pause();
-    if (nextSound) nextSound.pause();
+    // Mute เสียงเขย่าและเสียงผลลัพธ์ทั้งหมด
+    if (shakeSound) shakeSound.muted = true;
+    if (nextSound) nextSound.muted = true;
   }
 });
 
