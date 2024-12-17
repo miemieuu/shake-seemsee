@@ -14,6 +14,7 @@ body {
   color: rgb(0, 0, 0);
   overflow-x: hidden;
   box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
 }
 
 /* กำหนดพื้นหลังมืดและภาพพื้นหลัง */
@@ -68,7 +69,17 @@ body {
 }
 
 .katha-detail p{
-  margin:0
+  margin:0;
+  font-size: 16px;
+}
+
+.headContact{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-bottom: 1px solid #AD9468;
+  text-align: left;
+  color: #AD9468;
 }
 
 #contact-section p{
@@ -78,28 +89,73 @@ body {
   color: #285247;
 }
 
-#ss-img{
-  width: 100%;
+/* สไตล์ภาพที่เคลื่อนไหว */
+#ss-img {
+  width:100%; /* ขนาดเริ่มต้นของภาพ */
 }
 
+.ss-img {
+  position: absolute;
+  bottom: 0;
+  right: 0; /* เริ่มจากจุดซ้ายล่าง */
+  transform: scale(0.5); /* ย่อขนาดภาพเริ่มต้น */
+  animation: moveAndScale 3s forwards ease-in-out; /* เรียกใช้ animation */
+}
+/* กำหนด keyframes */
+@keyframes moveAndScale {
+  0% {
+    transform: translate(-14vw, 40vh) scale(0.05); /* เริ่มต้นจากซ้ายล่าง และขนาดเล็ก */
+  }
+  100% {
+    transform: translate(0, -0) scale(1); /* หยุดตรงกลางพร้อมขยายภาพเต็มขนาด */
+  }
+}
 
-
-.ss-img-large{
+/* กำหนดสไตล์เริ่มต้นของภาพ */
+.ss-img-large {
   width: 100%;
   max-width: 473px;
   height: 80%;
   border-radius: 16px;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.8);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 0px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* ย้ายตำแหน่งให้กลาง */
+  top: 45%;
+  left: -100%; /* ซ่อนไว้ทางซ้ายก่อนเริ่ม */
+  transform: translate(-50%, -50%);
   box-sizing: border-box;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  animation: slideIn 1s forwards ease-out, shimmer 2s infinite ease-in-out 1s; /* 2 แอนิเมชัน */
+}
+
+/* Animation: เลื่อนจากซ้ายมาที่จุดกึ่งกลาง */
+@keyframes slideIn {
+  0% {
+    left: -100%; /* เริ่มจากนอกจอด้านซ้าย */
+    opacity: 0;
+  }
+  100% {
+    left: 50%; /* มาหยุดตรงกลาง */
+    opacity: 1;
+  }
+}
+
+/* Animation: shimmer */
+@keyframes shimmer {
+  0% {
+    box-shadow: 0 0 10px gold, 0 0 20px orange; /* ลดความหนาของเงา */
+  }
+  50% {
+    box-shadow: 0 0 20px orange, 0 0 40px gold; /* ปรับความนุ่มนวล */
+  }
+  100% {
+    box-shadow: 0 0 10px gold, 0 0 20px orange;
+  }
 }
 
 
@@ -108,7 +164,7 @@ body {
 }
 
 h2 {
-  text-shadow: 0 0 3px #313131;
+  font-family: "Cormorant", serif;
 }
 #next-btn {
   border-radius: 100px; /* การตั้งค่ามุมโค้งของปุ่ม */
@@ -117,11 +173,13 @@ h2 {
   padding: 10px; /* เว้นระยะภายในปุ่ม */
   cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer เมื่อชี้ไปที่ปุ่ม */
   width: 100%;
+  text-align: center;
+  color: #fff;
 }
 
 #b_start{
   position: absolute; /* ทำให้ปุ่มทับที่รูปภาพ */
-  top: 80%; /* ตั้งตำแหน่งให้ปุ่มอยู่กึ่งกลางภาพจากด้านบน */
+  top: 90%; /* ตั้งตำแหน่งให้ปุ่มอยู่กึ่งกลางภาพจากด้านบน */
   left: 50%; /* ตั้งตำแหน่งให้ปุ่มอยู่กึ่งกลางภาพจากด้านซ้าย */
   transform: translate(-50%, -50%); /* เลื่อนปุ่มให้แน่นอนกึ่งกลาง */
   z-index: 10; /* เพิ่ม z-index เพื่อให้ปุ่มอยู่เหนือภาพ */
@@ -131,12 +189,12 @@ h2 {
   padding: 10px; /* เว้นระยะภายในปุ่ม */
   cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer เมื่อชี้ไปที่ปุ่ม */
   width: 30%;
-  
+  color: white;
 }
 
 #b_continue{
   position: absolute; /* ทำให้ปุ่มทับที่รูปภาพ */
-  top: 95%; /* ตั้งตำแหน่งปุ่มใกล้ด้านล่างของภาพ */
+  top: 92%; /* ตั้งตำแหน่งปุ่มใกล้ด้านล่างของภาพ */
   left: 50%; /* ตั้งตำแหน่งให้อยู่ตรงกลางแนวนอน */
   transform: translate(-50%, -50%); /* เลื่อนปุ่มให้อยู่กึ่งกลาง */
   z-index: 10; /* ทำให้ปุ่มแสดงอยู่เหนือภาพ */
@@ -146,8 +204,9 @@ h2 {
   color: #fff; /* สีข้อความปุ่ม */
   padding: 10px; /* เว้นระยะภายในปุ่ม */
   cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer เมื่อชี้ไปที่ปุ่ม */
-  width: 30%;
+  width: 25%;
   text-align: center; /* จัดข้อความให้อยู่กลางปุ่ม */
+  margin-left: 2px;
 }
 #back-add{
   border-radius: 100px; /* การตั้งค่ามุมโค้งของปุ่ม */
@@ -170,6 +229,46 @@ h2 {
   cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer เมื่อชี้ไปที่ปุ่ม */
   width: auto;
   text-align: center; /* จัดข้อความให้อยู่กลางปุ่ม */
+}
+
+#play-sound-btn {
+  position: fixed; /* ตั้งตำแหน่งปุ่มให้คงที่ */
+  top: 10px; /* ระยะห่างจากด้านบน */
+  right: 10px; /* ระยะห่างจากด้านขวา */
+  width: 50px; /* กำหนดความกว้างของปุ่ม */
+  height: 50px; /* กำหนดความสูงของปุ่ม */
+  border-radius: 50%; /* ทำให้ปุ่มกลม */
+  background-color: #4CAF50; /* กำหนดสีพื้นหลังเป็นเขียว */
+  border: none; /* ลบกรอบของปุ่ม */
+  display: flex;
+  justify-content: center; /* จัดตำแหน่งไอคอนให้อยู่กลาง */
+  align-items: center; /* จัดตำแหน่งไอคอนให้อยู่กลาง */
+  cursor: pointer; /* เปลี่ยน cursor เป็น pointer เมื่อ hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงาให้ดูน่าสนใจ */
+  z-index: 1000; /* ให้ปุ่มอยู่เหนือส่วนอื่นๆ */
+  animation: blink 1s 2;
+}
+
+/* แอนิเมชันการกะพริบ */
+@keyframes blink {
+  0% {
+    opacity: 1; /* ปกติ */
+  }
+  50% {
+    opacity: 0; /* ซ่อน */
+  }
+  100% {
+    opacity: 1; /* ปกติ */
+  }
+}
+
+#play-sound-btn i {
+  font-size: 24px; /* ขนาดของไอคอน */
+  color: white; /* สีของไอคอน */
+}
+
+#play-sound-btn:hover {
+  background-color: #45a049; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
 }
 
 
@@ -198,12 +297,16 @@ h2 {
     min-width: 200%; /* ขยายภาพให้พอดีกับ iPad */
     height: auto; 
     margin-left: -50%; /* ขยับภาพให้เหมาะสม */
+    position: absolute;
+    bottom: 0;
+    right: 0; /* เริ่มจากจุดซ้ายล่าง */
+    transform: scale(0.5); /* ย่อขนาดภาพเริ่มต้น */
+    animation: moveAndScale 3s forwards ease-in-out; /* เรียกใช้ animation */
   }
 
   .ss-img-large {
     width: 70%;
     height: auto;
-    margin-top: -5%; /* ขยับภาพไปทางซ้าย */
   }
 
   #b_start, #b_continue {
@@ -215,19 +318,28 @@ h2 {
   }
 
   #b_continue {
-    top: 85%;
+    top: 82%;
   }
 
   #back-add, #b_back {
     padding: 10px 250px;
+    white-space: nowrap;
   }
-}
 
+  @keyframes moveAndScale {
+    0% {
+      transform: translate(15vw, 30vh) scale(0.05); /* เริ่มต้นจากกรอบซ้ายล่าง */
+    }
+    100% {
+      transform: translate(50vw, -25vh) scale(1); /* หยุดตรงกลางพร้อมขยายภาพเต็มขนาด */
+    }
+  }
+  
+}
 
 /* Media Queries for responsiveness */
 @media screen and (max-width: 768px) {
   #katha-container, #contact-container {
-    width: 90%;
     padding: 16px;
   }
 
@@ -279,10 +391,6 @@ h2 {
     margin-left: -25%; /* ขยับภาพไปทางซ้ายเพื่อให้ภาพเริ่มที่ตำแหน่งที่ต้องการ */
   }
 
-  #contact-container{
-    width: 100%;
-  }
-
   .headkatha h1 {
     font-size: 18px;
   }
@@ -295,24 +403,46 @@ h2 {
     padding: 6px 0;
   }
 
-  .ss-img {
-    min-width: 300%; /* ทำให้ภาพขยายกว้างขึ้น */
-    height: auto; /* ให้ความสูงปรับตามอัตราส่วน */
-    margin-left: -100%; /* ขยับภาพไปทางซ้ายเพื่อให้ภาพเริ่มที่ตำแหน่งที่ต้องการ */
-  }
-  
 
   .ss-img-large {
     max-width: 80%;
     height: auto;
-    margin-top: -10%; /* ขยับภาพไปทางซ้ายเพื่อให้ภาพเริ่มที่ตำแหน่งที่ต้องการ */
+    margin-top: -5%; /* ขยับภาพไปทางซ้ายเพื่อให้ภาพเริ่มที่ตำแหน่งที่ต้องการ */
+  }
+  /* Animation: เลื่อนจากซ้ายมาที่จุดกึ่งกลาง */
+  @keyframes slideIn {
+    0% {
+      left: -100%; /* เริ่มจากนอกจอด้านซ้าย */
+      opacity: 0;
+    }
+    100% {
+      left: 50%; /* มาหยุดตรงกลาง */
+      opacity: 1;
+    }
+  }
+
+  /* Animation: shimmer */
+  @keyframes shimmer {
+    0% {
+      box-shadow: 0 0 10px gold, 0 0 20px orange; /* ลดความหนาของเงา */
+    }
+    50% {
+      box-shadow: 0 0 20px orange, 0 0 40px gold; /* ปรับความนุ่มนวล */
+    }
+    100% {
+      box-shadow: 0 0 10px gold, 0 0 20px orange;
+    }
   }
 
   #b_start, #b_continue {
     width: 50%;
+
   }
 
-
+  #b_start{
+    margin-left: 1px;
+    margin-top: 6px;
+  }
 
   #b_continue {
     top: 85%;
@@ -321,6 +451,62 @@ h2 {
   #back-add, #b_back {
     padding: 10px 100px;
   }
+  .headkatha h1 {
+    font-size: 18px;
+  }
+  
+  .headkatha h2 {
+    font-size: 16px;
+  }
+
+  .katha-detail p{
+    font-size: 14px;
+  }
+
+  .ss-img {
+    position: absolute;
+    bottom: 0;
+    right: 0; /* เริ่มจากจุดซ้ายล่าง */
+    width:100%; /* ขนาดเริ่มต้นของภาพ */
+    transform: scale(0.5); /* ย่อขนาดภาพเริ่มต้น */
+    animation: moveAndScale 3s forwards ease-in-out; /* เรียกใช้ animation */
+    min-width: 300%; /* ทำให้ภาพขยายกว้างขึ้น */
+    height: auto; /* ให้ความสูงปรับตามอัตราส่วน */
+    margin-left: -100%; /* ขยับภาพไปทางซ้ายเพื่อให้ภาพเริ่มที่ตำแหน่งที่ต้องการ */
+  }
+  
+  @keyframes moveAndScale {
+    0% {
+      transform: translate(85vw, 30vh) scale(0.05); /* เริ่มต้นจากกรอบซ้ายล่าง */
+    }
+    100% {
+      transform: translate(104vw, -20vh) scale(1); /* หยุดตรงกลางพร้อมขยายภาพเต็มขนาด */
+    }
+  }
+  
+}
+
+/* ซ่อนข้อความแจ้งเตือนในแนวตั้ง */
+#landscape-warning {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+/* แสดงข้อความเมื่ออยู่ในแนวนอน */
+body.landscape #landscape-warning {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
