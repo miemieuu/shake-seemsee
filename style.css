@@ -551,10 +551,3 @@ h2 {
     transform: translate(-50%, -30%);
   }
 }
-
-@media (max-width: 768px) and (orientation: landscape) {
-  #katha-section, #contact-section {
-    transform: scale(0.5) translateX(-100%) translateY(-50%); /* ลดขนาดของเนื้อหาทั้งหมด */
-    transform-origin: top; 
-  }
-}
