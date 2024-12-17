@@ -1,7 +1,7 @@
 let shakeSound, nextSound; 
 // ฟังก์ชันสำหรับการเขย่าเซียมซี
 function st_random() {
-  if (!backgroundSound.paused) {
+  if (!backgroundSound.paused && !backgroundSound.muted) { // ตรวจสอบว่าเสียงพื้นหลังไม่หยุดและไม่ mute
     // สร้างเสียงเขย่า
     shakeSound = new Audio("sound/SFX_Shake_01.mp3");
     shakeSound.play(); // เล่นเสียงเขย่า
@@ -12,7 +12,6 @@ function st_random() {
       nextSound.play(); // เล่นเสียงผลลัพธ์
     }, 4900);
   }
-
 
   $("#ss-img").attr("src", "TestPic/seemsee.gif"); // ตั้งค่าให้แสดง gif
   const allowedNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21, 22, 24];
@@ -63,11 +62,13 @@ document.getElementById("back-add").addEventListener("click", function() {
   window.open("https://line.me/R/ti/p/@your-line-id", "_blank");
 });
 
-    // ฟังก์ชันเปิด/ปิดเสียงพื้นหลัง
+
+// ฟังก์ชันเปิด/ปิดเสียงพื้นหลัง
 const playSoundBtn = document.getElementById('play-sound-btn');
 const soundOnIcon = document.getElementById('sound-on-icon');
 const soundOffIcon = document.getElementById('sound-off-icon');
 const backgroundSound = document.getElementById('background-sound');
+
 playSoundBtn.addEventListener('click', function() {
   if (backgroundSound.paused) {
     backgroundSound.play(); // เล่นเสียงพื้นหลัง
@@ -77,16 +78,28 @@ playSoundBtn.addEventListener('click', function() {
     // เปิดเสียงเขย่าและเสียงผลลัพธ์ทั้งหมด
     if (shakeSound) shakeSound.muted = false;
     if (nextSound) nextSound.muted = false;
-
   } else {
-    backgroundSound.pause(); // ปิดเสียงพื้นหลัง
-    soundOffIcon.style.display = 'inline';
-    soundOnIcon.style.display = 'none';
+    if (backgroundSound.muted) {
+      backgroundSound.muted = false; // เปิดเสียงพื้นหลัง
+      soundOffIcon.style.display = 'none';
+      soundOnIcon.style.display = 'inline';
 
-    // Mute เสียงเขย่าและเสียงผลลัพธ์ทั้งหมด
-    if (shakeSound) shakeSound.muted = true;
-    if (nextSound) nextSound.muted = true;
+      // เปิดเสียงเขย่าและเสียงผลลัพธ์ทั้งหมด
+      if (shakeSound) shakeSound.muted = false;
+      if (nextSound) nextSound.muted = false;
+    } else {
+      // ปิดเสียงทั้งหมด
+      backgroundSound.muted = true; // ปิดเสียงพื้นหลัง
+      soundOffIcon.style.display = 'inline';
+      soundOnIcon.style.display = 'none';
+
+      // Mute เสียงเขย่าและเสียงผลลัพธ์ทั้งหมด
+      if (shakeSound) shakeSound.muted = true;
+      if (nextSound) nextSound.muted = true;
+    }
   }
 });
+
+
 
 
