@@ -58,6 +58,10 @@ body {
   box-sizing: border-box;
 }
 
+#contact-container img{
+  padding-top: 16px;
+}
+
 .headkatha{
   border-bottom: 1px solid #AD9468;
   text-align: left;
@@ -185,6 +189,7 @@ h2 {
   width: 100%;
   text-align: center;
   color: #fff;
+  outline: none;
 }
 
 #b_start{
@@ -200,7 +205,12 @@ h2 {
   cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็น pointer เมื่อชี้ไปที่ปุ่ม */
   width: 30%;
   color: white;
+  outline: none; /* ลบกรอบเมื่อกด */
 }
+#b_start:active {
+  outline: none; /* ลบกรอบเมื่อกด */
+}
+
 
 #b_continue{
   position: absolute; /* ทำให้ปุ่มทับที่รูปภาพ */
